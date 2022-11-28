@@ -5,6 +5,7 @@ import com.example.webproject.entity.Drug;
 import com.example.webproject.entity.User;
 import com.example.webproject.service.DrugService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import java.util.List;
  * @author Dylan
  * @since 2022-11-26
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/drug")
 public class DrugController {

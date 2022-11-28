@@ -15,6 +15,7 @@ import javax.annotation.Resource;
  * @author Dylan
  * @since 2022-11-26
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/cart")
 public class ShoppingCartController {
