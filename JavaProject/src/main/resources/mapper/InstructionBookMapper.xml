@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webproject.mapper.InstructionBookMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.webproject.entity.InstructionBook">
+        <id column="db_drugid" property="drugId" />
+        <result column="db_useage" property="dosage" />
+        <result column="db_taboo" property="taboo" />
+        <result column="db_functions" property="function" />
+        <result column="db_title" property="name" />
+    </resultMap>
+
+    <select id="list" resultMap="BaseResultMap">
+        select * from directions;
+    </select>
+
+</mapper>

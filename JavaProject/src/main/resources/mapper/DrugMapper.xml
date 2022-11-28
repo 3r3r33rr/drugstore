@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webproject.mapper.DrugMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.webproject.entity.Drug">
+        <id column="db_drugid" property="id" />
+        <result column="db_price" property="price" />
+        <result column="db_name" property="name" />
+        <result column="db_zuoyong" property="function" />
+        <result column="db_tupian" property="photo" />
+        <result column="db_kucun" property="stock" />
+        <result column="db_xiangxi" property="details" />
+        <result column="db_guige" property="specification" />
+        <result column="db_baozhi" property="shelflife" />
+        <result column="db_jixing" property="formulations" />
+        <result column="db_keshi" property="department" />
+        <result column="db_zhuangtai" property="state" />
+        <result column="db_shuoming" property="instructionbookid" />
+    </resultMap>
+
+    <select id="list" resultMap="BaseResultMap">
+        select * from yaopin;
+    </select>
+
+</mapper>

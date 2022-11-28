@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.12.227.13:3306/wanyuetangdatabase?serverTimezone=GMT%2b8
+    username: root
+    password: WanYueTang_2022
+
