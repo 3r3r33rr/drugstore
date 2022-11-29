@@ -1,5 +1,6 @@
 package com.example.webproject.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.webproject.dto.LoginRequest;
 import com.example.webproject.dto.Result;
 import com.example.webproject.entity.User;
@@ -41,6 +42,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
    @Override
     public Result register(User user){
+       User res = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getName, user.getName()));
+       if (res != null) {
+           return Result.fail("用户名重复");
+       }
        boolean save = save(user);
        if(save){
         return Result.ok("注册成功!");
