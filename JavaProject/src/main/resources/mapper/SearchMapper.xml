@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webproject.mapper.SearchMapper">
+
+    <select id="search" resultMap="com.example.webproject.mapper.DrugMapper.BaseResultMap">
+        select db_drugid from yaopin
+            <where>
+                <if test="searchValue != null and searchValue != ''">
+                    db_name like concat('%',#{name},'%') or
+                    db_zuoyong like concat('%',#{function},'%') or
+                    db_jixing like concat('%',#{formulations},'%') or
+                    db_keshi like concat('%',#{department},'%')
+                </if>
+            </where>
+    </select>
+</mapper>
