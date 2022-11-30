@@ -19,6 +19,10 @@ public class SearchController {
     @GetMapping("/search")
     public Result selectDrug(@RequestParam("searchKey")String searchValue){
         List<Drug> search = searchService.search(searchValue);
-        return Result.ok(search);
+        if(search.isEmpty()){
+            return Result.fail("未查到信息");
+        }else {
+            return Result.ok(search);
+        }
     }
 }
