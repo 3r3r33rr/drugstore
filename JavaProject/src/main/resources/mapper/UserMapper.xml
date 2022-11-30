@@ -20,9 +20,9 @@
         select * from users;
     </select>
     
-    <update id="update">
-        update users set db_email=#{email},db_address=#{address},db_birth=#{birth} where db_username=#{username};
-    </update>
+    <!--<update id="update">-->
+    <!--    update users set db_email=#{email},db_address=#{address},db_birth=#{birth} where db_username=#{username};-->
+    <!--</update>-->
 
     <select id="querybymes" resultMap="BaseResultMap">
         select * from users where db_username=#{name} and db_pwd=#{pwd}
