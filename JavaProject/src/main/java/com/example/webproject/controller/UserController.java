@@ -2,6 +2,7 @@ package com.example.webproject.controller;
 
 import com.example.webproject.dto.LoginRequest;
 import com.example.webproject.dto.Result;
+import com.example.webproject.entity.ShoppingCart;
 import com.example.webproject.entity.User;
 import com.example.webproject.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,10 @@ public Result login(@RequestBody LoginRequest request){
 //        return userService.update(name,email,address,birth);
 //    }
 
-
+    @PostMapping("/update")
+    public Result update(@RequestBody User user){
+        return userService.update(user);
+    }
 
 
 

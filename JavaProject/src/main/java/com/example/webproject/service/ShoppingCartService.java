@@ -21,4 +21,6 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
     Result selectById(Integer userId);
 
     Result updateCart(ShoppingCart shoppingCart);
+
+    Result deleteCart(Integer userid,Integer drugid);
 }

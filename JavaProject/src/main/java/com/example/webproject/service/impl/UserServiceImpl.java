@@ -1,8 +1,10 @@
 package com.example.webproject.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.webproject.dto.LoginRequest;
 import com.example.webproject.dto.Result;
+import com.example.webproject.entity.ShoppingCart;
 import com.example.webproject.entity.User;
 import com.example.webproject.mapper.UserMapper;
 import com.example.webproject.service.UserService;
@@ -63,4 +65,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             return Result.ok(one);
         }
     }
+    @Override
+    public Result update(User user) {
+        if (user.getId()==null){
+            return Result.fail("传入的用户信息不全!");
+        }
+        UpdateWrapper<User> warp=new UpdateWrapper<>();
+        warp.set("db_birth", user.getBirth()).eq("db_userid", user.getId());
+        warp.set("db_address", user.getAddress()).eq("db_userid", user.getId());
+        warp.set("db_email", user.getEmail()).eq("db_userid", user.getId());
+        warp.set("db_userage", user.getUserage()).eq("db_userid", user.getId());
+        boolean update = update(warp);
+        if(!update){
+            return Result.fail("更新数据失败");
+        }else{
+            return Result.ok("更新成功");
+        }
+    }
+
 }

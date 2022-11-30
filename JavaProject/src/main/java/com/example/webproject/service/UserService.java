@@ -2,9 +2,11 @@ package com.example.webproject.service;
 
 import com.example.webproject.dto.LoginRequest;
 import com.example.webproject.dto.Result;
+import com.example.webproject.entity.ShoppingCart;
 import com.example.webproject.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 /**
@@ -25,5 +27,7 @@ public interface UserService extends IService<User> {
     Result register(User user);
 
     Result login(LoginRequest request);
+    Result update(User user);
+
 
 }

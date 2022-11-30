@@ -1,13 +1,17 @@
 package com.example.webproject.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.injector.methods.DeleteBatchByIds;
 import com.example.webproject.dto.Result;
 import com.example.webproject.entity.ShoppingCart;
 import com.example.webproject.mapper.ShoppingCartMapper;
 import com.example.webproject.service.ShoppingCartService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import net.sf.jsqlparser.statement.delete.Delete;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -61,4 +65,18 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper, Sho
             return Result.ok("更新成功");
         }
     }
+
+    @Override
+    public Result deleteCart(Integer userid, Integer drugid) {
+        QueryWrapper<ShoppingCart> shoppingCartQueryWrapper=new QueryWrapper<>();
+        shoppingCartQueryWrapper.eq("db_userid",userid);
+        shoppingCartQueryWrapper.eq("db_drugid",drugid);
+        boolean isRemoved=remove(shoppingCartQueryWrapper);
+        if (!isRemoved){
+            return Result.fail("删除购物车失败");
+        }
+        return Result.ok("删除成功");
+    }
+
+
 }

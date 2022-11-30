@@ -43,4 +43,9 @@ public class ShoppingCartController {
     public Result getAll(){
         return service.getAll();
     }
+
+    @GetMapping("/delete")
+    public Result deleteCart(@RequestParam("userid")Integer userid,@RequestParam("drugid")Integer drugid){
+        return service.deleteCart(userid,drugid);
+    }
 }
