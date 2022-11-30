@@ -55,6 +55,12 @@ public Result login(@RequestBody LoginRequest request){
         return userService.update(user);
     }
 
+    @GetMapping("/selectid")
+    public Result selectId(@RequestParam("id")Integer id){
+        User user = userService.selectById(id);
+        return Result.ok(user);
+    }
+
 
 
 

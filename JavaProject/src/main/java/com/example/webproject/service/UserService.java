@@ -19,15 +19,14 @@ import java.util.List;
  */
 public interface UserService extends IService<User> {
 
-
-
-   Result getAllUsers();
-
+    Result getAllUsers();
 
     Result register(User user);
 
     Result login(LoginRequest request);
     Result update(User user);
+
+    User selectById(Integer id);
 
 
 }
